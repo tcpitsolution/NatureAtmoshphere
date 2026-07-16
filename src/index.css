@@ -1,0 +1,20 @@
+/* =========================================================
+   INDEX.CSS — Fonts + Vite Root Reset
+   theme.css already handles colors, layout, components.
+   This file only loads fonts and resets Vite's default root behaviour.
+   ========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Marcellus&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap');
+
+html, body, #root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+#root {
+  display: block;
+  text-align: left;
+  margin: 0;
+  padding: 0;
+  max-width: none;
+}

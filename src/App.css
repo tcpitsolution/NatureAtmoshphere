@@ -1,0 +1,15 @@
+/* =========================================================
+   APP.CSS — App-level layout only
+   Page-specific styling stays inline in each page's JSX.
+   theme.css owns all colors, fonts, buttons, and components.
+   ========================================================= */
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-main {
+  flex: 1;
+}
