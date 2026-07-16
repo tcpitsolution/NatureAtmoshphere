@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router-dom'
+import { FaWhatsapp, FaFacebookF, FaInstagram } from 'react-icons/fa'
 
 export default function Footer() {
   return (
@@ -24,6 +25,26 @@ export default function Footer() {
             Premium wellness and handicraft store based in Varanasi, India — handmade incense,
             essential oils, gemstones, silver jewellery, bronze statues and more, delivered worldwide.
           </p>
+          <div style={{ display: 'flex', gap: 14, marginTop: 20 }}>
+            {[
+              { icon: <FaWhatsapp size={18} />, href: 'https://wa.me/919336812007' },
+              { icon: <FaFacebookF size={16} />, href: 'https://facebook.com' },
+              { icon: <FaInstagram size={17} />, href: 'https://instagram.com' },
+            ].map(({ icon, href }, i) => (
+              <a key={i} href={href} target="_blank" rel="noopener noreferrer"
+                style={{
+                  width: 36, height: 36,
+                  borderRadius: '50%',
+                  border: '1px solid rgba(176,141,63,0.4)',
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  color: 'var(--color-gold-light)',
+                  transition: 'background 0.2s, border-color 0.2s',
+                }}
+                onMouseEnter={e => { e.currentTarget.style.background = 'rgba(176,141,63,0.15)'; e.currentTarget.style.borderColor = 'var(--color-gold)'; }}
+                onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.borderColor = 'rgba(176,141,63,0.4)'; }}
+              >{icon}</a>
+            ))}
+          </div>
         </div>
 
         <div>
@@ -74,7 +95,7 @@ export default function Footer() {
         }}
       >
         <div>© {new Date().getFullYear()} Nature Atmosphere. All rights reserved.</div>
-        <div>Designed with reverence for Varanasi's craft.</div>
+        <div>Powered by TCP IT Solution.</div>
       </div>
     </footer>
   )
