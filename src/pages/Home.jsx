@@ -61,7 +61,7 @@ export default function Home() {
             Authentic handmade incense, essential oils, gemstones, silver jewellery, bronze statues
             and Banarasi silk — handcrafted in the heart of Varanasi and shipped to the world.
           </p>
-          <div className="anim-fade-up anim-d4" style={{ display: 'flex', gap: 20, marginTop: 44, flexWrap: 'wrap', animationFillMode: 'both' }}>
+          <div className="anim-fade-up anim-d4 hero-btns" style={{ display: 'flex', gap: 20, marginTop: 44, flexWrap: 'wrap', animationFillMode: 'both' }}>
             <Button variant="primary" href="#categories">Explore Collection</Button>
             <Button variant="ghost" href="/inquiry">Make an Inquiry</Button>
           </div>
@@ -71,6 +71,7 @@ export default function Home() {
       {/* INTRO STRIP */}
       <div
         ref={introRef}
+        className="intro-strip"
         style={{ background: 'var(--color-charcoal)', color: 'var(--color-ivory)', padding: '70px 32px', textAlign: 'center' }}
       >
         <div className={`accent-script anim-hidden ${introInView ? 'anim-fade-up anim-d1' : ''}`} style={{ fontSize: 22, color: 'var(--color-gold-light)', animationFillMode: 'both' }}>
@@ -86,7 +87,7 @@ export default function Home() {
         <SectionHeading eyebrow="Why Choose Us" title={<>Crafted with intention,<br />trusted across the world</>} />
         <div
           ref={whyRef}
-          className="container"
+          className="container why-grid"
           style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 1, background: 'var(--color-line)', border: '1px solid var(--color-line)' }}
         >
           {[
@@ -113,7 +114,7 @@ export default function Home() {
         />
         <div
           ref={catRef}
-          className="container"
+          className="container cat-grid"
           style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 26 }}
         >
           {categories.map((c, i) => (
@@ -125,9 +126,9 @@ export default function Home() {
       </section>
 
       {/* ABOUT SNIPPET */}
-      <section className="container section" style={{ display: 'grid', gridTemplateColumns: '0.9fr 1.1fr', gap: 80, alignItems: 'center' }}>
+      <section className="container section about-snippet" style={{ display: 'grid', gridTemplateColumns: '0.9fr 1.1fr', gap: 80, alignItems: 'center' }}>
         <div ref={aboutImgRef} className={`anim-hidden ${aboutImgInView ? 'anim-fade-up anim-d1' : ''}`} style={{ position: 'relative', animationFillMode: 'both' }}>
-          <img src={imgShowroom} alt="Inside the Nature Atmosphere showroom" style={{ width: '100%', height: 480, objectFit: 'cover' }} />
+          <img src={imgShowroom} alt="Inside the Nature Atmosphere showroom" className="about-snippet-img" style={{ width: '100%', height: 480, objectFit: 'cover' }} />
         </div>
         <div ref={aboutTxtRef} className={`anim-hidden ${aboutTxtInView ? 'anim-fade-up anim-d2' : ''}`} style={{ animationFillMode: 'both' }}>
           <div className="eyebrow">About Us</div>

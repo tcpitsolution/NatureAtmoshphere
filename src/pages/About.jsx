@@ -174,7 +174,7 @@ export default function About() {
 
         <div
           ref={cardsRef}
-          className="container"
+          className="container reviews-grid"
           style={{
             display: "grid",
             gridTemplateColumns: "repeat(4, 1fr)",

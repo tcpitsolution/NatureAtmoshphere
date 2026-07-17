@@ -14,8 +14,8 @@
   --color-ivory-dim: #EFE6D4;     /* secondary light surface */
   --color-maroon: #6E1423;        /* signature accent — Banarasi silk red */
   --color-maroon-deep: #4E0E19;
-  --color-gold: #B08D3F;          /* metallic accent — antique brass/temple gold */
-  --color-gold-light: #D8BD7C;    /* hover / highlight gold */
+  --color-gold: #8A6B28;          /* metallic accent — antique brass/temple gold */
+  --color-gold-light: #B08D3F;    /* hover / highlight gold */
   --color-smoke: #8C8378;         /* muted text */
   --color-line: rgba(176, 141, 63, 0.35); /* hairline borders */
 
@@ -188,6 +188,135 @@ button { font-family: inherit; cursor: pointer; }
 .anim-d6 { animation-delay: 0.6s; }
 .anim-d7 { animation-delay: 0.7s; }
 .anim-d8 { animation-delay: 0.8s; }
+
+/* ---------------- Floating WhatsApp Button ---------------- */
+@keyframes floatBob {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-10px); }
+}
+@keyframes waPulse {
+  0%   { box-shadow: 0 0 0 0 rgba(37,211,102,0.55); }
+  70%  { box-shadow: 0 0 0 14px rgba(37,211,102,0); }
+  100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); }
+}
+.wa-float {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  z-index: 999;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #25D366;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  text-decoration: none;
+  animation: floatBob 2.8s ease-in-out infinite, waPulse 2.4s ease-out infinite;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+.wa-float:hover {
+  background: #1ebe5d;
+  animation: none;
+  transform: scale(1.12);
+}
+
+/* =========================================================
+   RESPONSIVE — MEDIA QUERIES
+   Breakpoints:
+     md  → max 1024px  (tablets, small laptops)
+     sm  → max 768px   (large phones, portrait tablet)
+     xs  → max 480px   (small phones)
+   ========================================================= */
+
+/* ---- Layout helpers ---- */
+@media (max-width: 1024px) {
+  .container { padding: 0 24px; }
+  .section    { padding: 80px 24px; }
+}
+@media (max-width: 768px) {
+  .container { padding: 0 18px; }
+  .section    { padding: 60px 18px; }
+  .section-head { margin-bottom: 48px; }
+}
+@media (max-width: 480px) {
+  .container { padding: 0 16px; }
+  .section    { padding: 48px 16px; }
+}
+
+/* ---- Header ---- */
+@media (max-width: 768px) {
+  .nav-links-desktop { display: none !important; }
+  .menu-toggle       { display: block !important; }
+  #nav-cta           { display: none !important; }
+}
+
+/* ---- Footer ---- */
+@media (max-width: 1024px) {
+  .footer-grid { grid-template-columns: 1fr 1fr !important; gap: 40px !important; }
+}
+@media (max-width: 600px) {
+  .footer-grid { grid-template-columns: 1fr !important; gap: 36px !important; }
+  .footer-root { padding: 60px 18px 24px !important; }
+}
+
+/* ---- Home — Hero ---- */
+@media (max-width: 768px) {
+  .hero-btns { flex-direction: column !important; align-items: flex-start !important; }
+}
+
+/* ---- Home — Why grid (4 col → 2 col → 1 col) ---- */
+@media (max-width: 1024px) {
+  .why-grid { grid-template-columns: repeat(2, 1fr) !important; }
+}
+@media (max-width: 480px) {
+  .why-grid { grid-template-columns: 1fr !important; }
+}
+
+/* ---- Home — Category grid (4 → 2 → 1) ---- */
+@media (max-width: 1024px) {
+  .cat-grid { grid-template-columns: repeat(2, 1fr) !important; }
+}
+@media (max-width: 480px) {
+  .cat-grid { grid-template-columns: 1fr !important; gap: 16px !important; }
+}
+
+/* ---- Home — About snippet (2 col → 1 col) ---- */
+@media (max-width: 768px) {
+  .about-snippet { grid-template-columns: 1fr !important; gap: 36px !important; }
+  .about-snippet-img { height: 280px !important; }
+}
+
+/* ---- Home — Intro strip ---- */
+@media (max-width: 480px) {
+  .intro-strip { padding: 48px 16px !important; }
+  .intro-strip .accent-script { font-size: 17px !important; }
+}
+
+/* ---- About — Review cards (4 → 2 → 1) ---- */
+@media (max-width: 1024px) {
+  .reviews-grid { grid-template-columns: repeat(2, 1fr) !important; }
+}
+@media (max-width: 480px) {
+  .reviews-grid { grid-template-columns: 1fr !important; }
+}
+
+/* ---- Contact — 2 col → 1 col ---- */
+@media (max-width: 768px) {
+  .contact-grid { grid-template-columns: 1fr !important; gap: 40px !important; }
+  .contact-map  { min-height: 280px !important; }
+}
+
+/* ---- Inquiry — Country/Phone row → 1 col ---- */
+@media (max-width: 600px) {
+  .inquiry-row { grid-template-columns: 1fr !important; gap: 24px !important; }
+}
+
+/* ---- Floating WhatsApp ---- */
+@media (max-width: 480px) {
+  .wa-float { bottom: 20px; right: 18px; width: 50px; height: 50px; }
+}
 
 /* ---------------- Utility ---------------- */
 .text-ivory { color: var(--color-ivory); }

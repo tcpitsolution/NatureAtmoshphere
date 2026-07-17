@@ -3,9 +3,9 @@ import { FaWhatsapp, FaFacebookF, FaInstagram } from 'react-icons/fa'
 
 export default function Footer() {
   return (
-    <footer style={{ background: 'var(--color-charcoal-soft)', color: 'var(--color-ivory-dim)', padding: '90px 32px 30px' }}>
+    <footer className="footer-root" style={{ background: 'var(--color-charcoal-soft)', color: 'var(--color-ivory-dim)', padding: '90px 32px 30px' }}>
       <div
-        className="container"
+        className="container footer-grid"
         style={{
           display: 'grid',
           gridTemplateColumns: '1.4fr 1fr 1fr 1.2fr',

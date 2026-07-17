@@ -2,6 +2,7 @@ import { useState } from "react";
 import SectionHeading from "../components/ui/SectionHeading.jsx";
 import Button from "../components/ui/Button.jsx";
 import inquiryBg from "../assets/video/video.mp4";
+import { sendAdminMail, sendUserMail } from "../utils/sendMail.js";
 
 const inputStyle = {
   width: "100%",
@@ -51,13 +52,45 @@ export default function Inquiry() {
     message: "",
   });
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState("");
 
   const handleChange = (e) =>
     setForm({ ...form, [e.target.name]: e.target.value });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmitted(true);
+    setSending(true);
+    setError("");
+
+    const details =
+      `Country: ${form.country}\n` +
+      `Category: ${form.category}\n` +
+      `Message: ${form.message}`;
+
+    try {
+      await Promise.all([
+        sendAdminMail({
+          formType: "Inquiry",
+          name: form.name,
+          email: form.email,
+          phone: form.phone,
+          details,
+        }),
+        sendUserMail({
+          pageName: "Inquiry Form",
+          name: form.name,
+          email: form.email,
+          details,
+        }),
+      ]);
+      setSubmitted(true);
+    } catch (err) {
+      console.error(err);
+      setError("Kuch gadbad ho gayi, dobara try karein.");
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -136,6 +169,7 @@ export default function Inquiry() {
               />
             </div>
             <div
+              className="inquiry-row"
               style={{
                 display: "grid",
                 gridTemplateColumns: "1fr 1fr",
@@ -204,9 +238,10 @@ export default function Inquiry() {
                 onChange={handleChange}
               />
             </div>
+            {error && <p style={{ color: "crimson" }}>{error}</p>}
             <div>
-              <Button type="submit" variant="outline-dark">
-                Submit Inquiry
+              <Button type="submit" variant="outline-dark" disabled={sending}>
+                {sending ? "Sending..." : "Submit Inquiry"}
               </Button>
             </div>
           </form>
