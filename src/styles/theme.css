@@ -100,21 +100,23 @@ button { font-family: inherit; cursor: pointer; }
   transition: 0.3s ease;
 }
 .btn-primary {
-  background: var(--color-gold);
-  color: var(--color-charcoal);
+  background: transparent;
+  color: var(--color-ivory);
   border-color: var(--color-gold);
 }
-.btn-primary:hover { background: transparent; color: var(--color-gold-light); }
+.btn-primary:hover { background: var(--color-gold); color: var(--color-charcoal); }
 
 .btn-ghost {
-  border-color: rgba(247, 241, 230, 0.4);
+  background: transparent;
+  border-color: var(--color-gold);
   color: var(--color-ivory);
 }
-.btn-ghost:hover { border-color: var(--color-gold-light); color: var(--color-gold-light); }
+.btn-ghost:hover { background: var(--color-gold); color: var(--color-charcoal); }
 
 .btn-outline-dark {
+  background: transparent;
   border-color: var(--color-gold);
-  color: var(--color-maroon);
+  color: var(--color-charcoal);
 }
 .btn-outline-dark:hover { background: var(--color-gold); color: var(--color-charcoal); }
 

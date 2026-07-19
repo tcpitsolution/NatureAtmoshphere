@@ -139,7 +139,9 @@ export default function Home() {
             Nature Atmosphere is dedicated to preserving India's traditional craftsmanship and natural
             heritage. Every product is carefully selected for authenticity, quality, and spiritual value.
           </p>
-          <Button variant="outline-dark" href="/about">Read Our Story</Button>
+          <div style={{ marginTop: 36 }}>
+            <Button variant="outline-dark" href="/about">Read Our Story</Button>
+          </div>
         </div>
       </section>
 
@@ -173,7 +175,7 @@ export default function Home() {
           will respond on WhatsApp and Email.
         </p>
         <div className={`anim-hidden ${ctaInView ? 'anim-fade-up anim-d4' : ''}`} style={{ marginTop: 38, animationFillMode: 'both' }}>
-          <Button variant="primary" href="/inquiry">Go to Inquiry Form</Button>
+          <Button variant="ghost" href="/inquiry">Go to Inquiry Form</Button>
         </div>
       </section>
     </>

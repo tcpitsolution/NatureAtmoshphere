@@ -239,7 +239,7 @@ export default function Inquiry() {
               />
             </div>
             {error && <p style={{ color: "crimson" }}>{error}</p>}
-            <div>
+            <div style={{ textAlign: "center" }}>
               <Button type="submit" variant="outline-dark" disabled={sending}>
                 {sending ? "Sending..." : "Submit Inquiry"}
               </Button>

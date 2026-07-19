@@ -2,6 +2,7 @@ import SectionHeading from "../components/ui/SectionHeading.jsx";
 import Divider from "../components/ui/Divider.jsx";
 import useInView from "../hooks/useInView.js";
 import atmoshphere from "../assets/images/atmoshphere.jpeg";
+import ownerImg from "../assets/images/owner.png";
 
 const reviews = [
   {
@@ -103,11 +104,13 @@ export default function About() {
           style={{ fontSize: 17, lineHeight: 1.9, color: "var(--color-smoke)", animationFillMode: "both" }}
         >
           Nature Atmosphere is a premium wellness and handicraft store based in
-          Varanasi, India. We specialise in authentic handmade incense, pure
-          essential oils, aroma oils, gemstones, crystals, silver jewellery,
-          bronze statues, singing bowls, Rudraksha, Banarasi silk products,
-          handicrafts, minerals, spices, and spiritual wellness products. We
-          serve customers from India and across the world.
+          Varanasi, India, proudly serving customers since 1957. With over six
+          decades of trust and a strong reputation in the market, we specialise
+          in authentic handmade incense, pure essential oils, aroma oils,
+          gemstones, crystals, silver jewellery, bronze statues, singing bowls,
+          Rudraksha, Banarasi silk products, handicrafts, minerals, spices, and
+          spiritual wellness products. We serve customers from India and across
+          the world.
         </p>
         <div style={{ margin: "50px 0" }}>
           <Divider />
@@ -236,19 +239,32 @@ export default function About() {
       </section>
 
       <section
-        className="section"
+        className="section container"
         style={{ background: "var(--color-ivory-dim)" }}
       >
         <div
           ref={ownerRef}
           className={`anim-hidden ${ownerInView ? "anim-fade-up anim-d1" : ""}`}
-          style={{ animationFillMode: "both" }}
+          style={{
+            animationFillMode: "both",
+            display: "grid",
+            gridTemplateColumns: "1fr 1fr",
+            gap: 60,
+            alignItems: "center",
+          }}
         >
-          <SectionHeading
-            eyebrow="Meet the Owner"
-            title="Krishna"
-            subtitle="A Unit of Rajmani Devi, Varanasi"
+          <img
+            src={ownerImg}
+            alt="Shashikant Jaiswal"
+            style={{ width: "100%", maxHeight: 420, objectFit: "contain", display: "block" }}
           />
+          <div>
+            <div className="eyebrow">Meet the Owner</div>
+            <h2 style={{ marginTop: 16, fontSize: 36 }}>Shashikant Jaiswal</h2>
+            <p style={{ marginTop: 12, color: "var(--color-smoke)", lineHeight: 1.8 }}>
+              A Unit of Rajmani Devi, Varanasi
+            </p>
+          </div>
         </div>
       </section>
     </>

@@ -1,6 +1,9 @@
 import { useState } from "react";
 import SectionHeading from "../components/ui/SectionHeading.jsx";
+import Button from "../components/ui/Button.jsx";
 import { sendAdminMail, sendUserMail } from "../utils/sendMail.js";
+
+import bgImage from "../assets/images/baground.jpeg";
 
 const inputStyle = {
   width: "100%",
@@ -73,8 +76,24 @@ export default function Contact() {
     <>
       <section
         className="section"
-        style={{ background: "var(--color-charcoal)" }}
+        style={{
+          position: "relative",
+          background: "var(--color-charcoal)",
+          overflow: "hidden",
+        }}
       >
+        <img
+          src={bgImage}
+          alt=""
+          style={{
+            position: "absolute",
+            inset: 0,
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            opacity: 0.3,
+          }}
+        />
         <SectionHeading
           light
           eyebrow="Reach Us"
@@ -170,22 +189,10 @@ export default function Contact() {
                 />
               </div>
               {error && <p style={{ color: "crimson" }}>{error}</p>}
-              <div>
-                <button
-                  type="submit"
-                  disabled={sending}
-                  style={{
-                    background: "transparent",
-                    border: "1px solid var(--color-charcoal)",
-                    padding: "12px 28px",
-                    fontSize: 12.5,
-                    letterSpacing: "0.1em",
-                    textTransform: "uppercase",
-                    cursor: "pointer",
-                  }}
-                >
+              <div style={{ textAlign: "center" }}>
+                <Button type="submit" variant="outline-dark" disabled={sending}>
                   {sending ? "Sending..." : "Send Message"}
-                </button>
+                </Button>
               </div>
             </form>
           )}
